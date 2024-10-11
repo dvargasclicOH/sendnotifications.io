@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/sendnotifications.io.git/static/css/main.0f11e0c1.css",
-    "main.js": "/sendnotifications.io.git/static/js/main.d75be676.js",
-    "static/js/453.49dd161c.chunk.js": "/sendnotifications.io.git/static/js/453.49dd161c.chunk.js",
-    "index.html": "/sendnotifications.io.git/index.html",
-    "main.0f11e0c1.css.map": "/sendnotifications.io.git/static/css/main.0f11e0c1.css.map",
-    "main.d75be676.js.map": "/sendnotifications.io.git/static/js/main.d75be676.js.map",
-    "453.49dd161c.chunk.js.map": "/sendnotifications.io.git/static/js/453.49dd161c.chunk.js.map"
+    "main.css": "/sendnotifications.io/static/css/main.0f11e0c1.css",
+    "main.js": "/sendnotifications.io/static/js/main.a6013f41.js",
+    "static/js/453.49dd161c.chunk.js": "/sendnotifications.io/static/js/453.49dd161c.chunk.js",
+    "index.html": "/sendnotifications.io/index.html",
+    "main.0f11e0c1.css.map": "/sendnotifications.io/static/css/main.0f11e0c1.css.map",
+    "main.a6013f41.js.map": "/sendnotifications.io/static/js/main.a6013f41.js.map",
+    "453.49dd161c.chunk.js.map": "/sendnotifications.io/static/js/453.49dd161c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.0f11e0c1.css",
-    "static/js/main.d75be676.js"
+    "static/js/main.a6013f41.js"
   ]
 }
