@@ -49,7 +49,7 @@ function App() {
       }
       setMessage('¡Envíos completados!');
     } catch (error) {
-      console.error("Error enviando los webhooks al url", error);
+      console.error("Error enviando los webhooks", error);
       setMessage('Hubo un error al enviar los webhooks.');
     }
   };
