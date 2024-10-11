@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
-import './App.css'
+import './App.css';
 
 function App() {
   const [csvData, setCsvData] = useState(null);
   const [category, setCategory] = useState('');
   const [template, setTemplate] = useState('');
   const [message, setMessage] = useState('');
+  const [fileMessage, setFileMessage] = useState('Ningún archivo seleccionado'); // Estado para el mensaje del archivo
 
   const handleFileUpload = (event) => {
     const file = event.target.files[0];
     if (!file) {
-      alert("Por favor, selecciona un archivo CSV.");
+      setFileMessage("Ningún archivo seleccionado"); // Actualiza el mensaje si no hay archivo
       return;
     }
 
@@ -30,6 +31,7 @@ function App() {
       });
 
       setCsvData(data);
+      setFileMessage(file.name); // Actualiza el mensaje con el nombre del archivo
     };
 
     reader.readAsText(file);
@@ -116,8 +118,10 @@ function App() {
             type="file"
             accept=".csv"
             onChange={handleFileUpload}
+            className='file-csv'
             required
           />
+          <p className="file-message">{fileMessage}</p> {/* Mensaje actualizado */}
         </div>
         <button type="submit">Enviar Webhook</button>
       </form>

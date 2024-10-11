@@ -5,47 +5,45 @@ body {
   margin: 0;
   padding: 0;
   color: #333;
-}
-
-.App {
-  width: 300px;
-  height: 300px;
-  text-align: -webkit-center;
+  width: 333px; /* Ajustar al ancho del iframe */
+  height: 450px; /* Ajustar a la altura del iframe */
+  overflow: hidden; /* Evitar scrollbars si es necesario */
 }
 
 h1 {
-  font-size: 36px;
+  font-size: 24px; /* Disminuir el tamaño del texto */
   color: #333;
   text-align: center;
-  margin-bottom: 32px;
+  margin-bottom: 16px; /* Reducir el margen */
 }
 
 form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 600px;
+  width: 100%; /* Tomar todo el ancho disponible */
   margin: 0 auto;
   padding: 16px;
   background: #fff;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box; /* Incluir padding y bordes en el ancho total */
 }
 
 label {
-  font-size: 18px;
+  font-size: 16px; /* Disminuir el tamaño del texto */
   margin-bottom: 8px;
   color: #333;
 }
 
 input[type="text"],
 input[type="file"] {
-  width: 60%;
-  padding: 12px;
-  margin-bottom: 16px;
+  width: 100%; /* Mantener ancho completo */
+  padding: 8px; /* Ajustar padding para espacio reducido */
+  margin-bottom: 12px; /* Reducir margen */
   border-radius: 8px;
   border: 1px solid #ccc;
-  font-size: 16px;
+  font-size: 14px; /* Disminuir el tamaño del texto */
   background-color: #F8F9FA;
   transition: border-color 0.2s ease;
 }
@@ -56,13 +54,24 @@ input[type="file"]:focus {
   border-color: #A0E7E5;
 }
 
+input.file-csv {
+  width: 135px;
+}
+
+.file-message {
+  font-size: 12px; /* Tamaño del texto más pequeño */
+  color: #666; /* Cambia el color si lo deseas */
+  margin-top: 8px; /* Espaciado superior para separarlo del input */
+  text-align: center; /* Centrar el texto si es necesario */
+}
+
 button {
   background: linear-gradient(135deg, #A0E7E5, #B4F8C8);
   color: #fff;
   border: none;
   border-radius: 8px;
-  padding: 12px 24px;
-  font-size: 16px;
+  padding: 8px 16px; /* Ajustar padding para espacio reducido */
+  font-size: 14px; /* Disminuir el tamaño del texto */
   cursor: pointer;
   transition: all 0.3s ease;
 }
@@ -74,7 +83,7 @@ button:hover {
 
 p {
   text-align: center;
-  margin-top: 24px;
-  font-size: 16px;
+  margin-top: 16px; /* Ajustar margen superior */
+  font-size: 14px; /* Disminuir el tamaño del texto */
   color: #2D3142;
 }
