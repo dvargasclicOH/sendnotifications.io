@@ -112,16 +112,18 @@ function App() {
             required
           />
         </div>
-        <div>
-          <label>Subir archivo CSV: </label>
-          <input
-            type="file"
-            accept=".csv"
-            onChange={handleFileUpload}
-            className='file-csv'
-            required
-          />
-          <p className="file-message">{fileMessage}</p> {/* Mensaje actualizado */}
+        <div class="containter-csv">
+          <label class="upload-label">Subir archivo CSV:</label>
+          <div class="file-upload-container">
+            <input
+              type="file"
+              accept=".csv"
+              onChange={handleFileUpload}
+              className="file-csv"
+              required
+            />
+            <p className="file-message">{fileMessage}</p> {/* Mensaje actualizado */}
+          </div>
         </div>
         <button type="submit">Enviar Webhook</button>
       </form>
