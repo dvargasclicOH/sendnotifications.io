@@ -5,23 +5,32 @@ body {
   margin: 0;
   padding: 0;
   color: #333;
-  width: 333px; /* Ajustar al ancho del iframe */
-  height: 450px; /* Ajustar a la altura del iframe */
+  width: 300px; /* Ajustar al ancho del iframe */
+  height: 438px; /* Ajustar a la altura del iframe */
   overflow: hidden; /* Evitar scrollbars si es necesario */
+}
+
+.App {
+  background-color: #1F2023;
+  color: white;
+  height: 360px;
 }
 
 h1 {
   font-size: 24px; /* Disminuir el tamaño del texto */
-  color: #333;
+  color: white;
   text-align: center;
   margin-bottom: 16px; /* Reducir el margen */
+  position: relative;
+  top: 8px
 }
 
 form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%; /* Tomar todo el ancho disponible */
+  width: 90%; /* Tomar todo el ancho disponible */
+  height: 84%;
   margin: 0 auto;
   padding: 16px;
   background: #fff;
@@ -31,14 +40,14 @@ form {
 }
 
 label {
-  font-size: 16px; /* Disminuir el tamaño del texto */
+  font-size: 14px; /* Disminuir el tamaño del texto */
   margin-bottom: 8px;
   color: #333;
 }
 
 input[type="text"],
 input[type="file"] {
-  width: 100%; /* Mantener ancho completo */
+  width: 90%; /* Mantener ancho completo */
   padding: 8px; /* Ajustar padding para espacio reducido */
   margin-bottom: 12px; /* Reducir margen */
   border-radius: 8px;
@@ -66,7 +75,7 @@ input.file-csv {
 }
 
 button {
-  background: linear-gradient(135deg, #A0E7E5, #B4F8C8);
+  background: linear-gradient(135deg, #C795E9, #8190C8);
   color: #fff;
   border: none;
   border-radius: 8px;
@@ -77,7 +86,7 @@ button {
 }
 
 button:hover {
-  background: linear-gradient(135deg, #B4F8C8, #A0E7E5);
+  background: linear-gradient(135deg, #1F2023, #8e8e8e);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
