@@ -2,7 +2,7 @@
   "name": "massive-notifications",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://dvargasclicOH/sendnotifications.io.git",
+  "homepage": "https://dvargasclicoh.github.io/sendnotifications.io",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
