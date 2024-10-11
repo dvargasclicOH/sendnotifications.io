@@ -125,7 +125,7 @@ function App() {
             <p className="file-message">{fileMessage}</p> {/* Mensaje actualizado */}
           </div>
         </div>
-        <button type="submit">Enviar Webhook</button>
+        <button type="submit">Enviar masivo</button>
       </form>
       {message && <p>{message}</p>}
     </div>
