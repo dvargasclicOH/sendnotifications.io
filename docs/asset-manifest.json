@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/sendnotifications.io/static/css/main.0a1ab55d.css",
-    "main.js": "/sendnotifications.io/static/js/main.63af1e4c.js",
+    "main.css": "/sendnotifications.io/static/css/main.bece064a.css",
+    "main.js": "/sendnotifications.io/static/js/main.81aad32c.js",
     "static/js/453.49dd161c.chunk.js": "/sendnotifications.io/static/js/453.49dd161c.chunk.js",
     "index.html": "/sendnotifications.io/index.html",
-    "main.0a1ab55d.css.map": "/sendnotifications.io/static/css/main.0a1ab55d.css.map",
-    "main.63af1e4c.js.map": "/sendnotifications.io/static/js/main.63af1e4c.js.map",
+    "main.bece064a.css.map": "/sendnotifications.io/static/css/main.bece064a.css.map",
+    "main.81aad32c.js.map": "/sendnotifications.io/static/js/main.81aad32c.js.map",
     "453.49dd161c.chunk.js.map": "/sendnotifications.io/static/js/453.49dd161c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0a1ab55d.css",
-    "static/js/main.63af1e4c.js"
+    "static/css/main.bece064a.css",
+    "static/js/main.81aad32c.js"
   ]
 }
