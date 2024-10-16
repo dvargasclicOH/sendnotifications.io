@@ -8,6 +8,10 @@ function App() {
   const [message, setMessage] = useState('');
   const [fileMessage, setFileMessage] = useState('Ningún archivo seleccionado'); // Estado para el mensaje del archivo
 
+  //Cargar categorías y templates
+  const categoryOptions = [''];
+  const templateOptions = [''];
+
   const handleFileUpload = (event) => {
     const file = event.target.files[0];
     if (!file) {
@@ -96,21 +100,33 @@ function App() {
       <form onSubmit={handleSubmit}>
         <div>
           <label>Categoría: </label>
-          <input
-            type="text"
+          <select
             value={category}
             onChange={(e) => setCategory(e.target.value)}
             required
-          />
+          >
+            <option value="">Selecciona una categoría</option>
+            {categoryOptions.map((option, index) => (
+              <option key={index} value={option}>
+                {option}
+              </option>
+            ))}
+            </select>
         </div>
         <div>
           <label>Template: </label>
-          <input
-            type="text"
+          <select            
             value={template}
             onChange={(e) => setTemplate(e.target.value)}
             required
-          />
+          >
+            <option value="">Selecciona un template</option>
+            {templateOptions.map((option, index) => (
+              <option key={index} value={option}>
+                {option}
+              </option>
+            ))}
+            </select>
         </div>
         <div class="containter-csv">
           <label class="upload-label">Subir archivo CSV:</label>
