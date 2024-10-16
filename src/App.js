@@ -9,8 +9,13 @@ function App() {
   const [fileMessage, setFileMessage] = useState('Ningún archivo seleccionado'); // Estado para el mensaje del archivo
 
   //Cargar categorías y templates
-  const categoryOptions = [''];
-  const templateOptions = [''];
+  const categoryOptions = ['Devoluciones','Guías_producidas','Indemnizaciones','Novedad_recolección'];
+  const templateOptByCtg = {
+    'Devoluciones': ['Primer contacto por novedad en devolución','10 días después del primer envio','15 días, luego del primer contacto'],
+    'Guías_producidas': ['No otorga trazabilidad','10 días después del primer envio'],
+    'Indemnizaciones': ['Primer contacto, por novedad 106','10 días, luego del primer contacto','15 días, cierre indemnización'],
+    'Novedad_recolección': ['Cliente despacha con otra transportadora','Validación causal no despacho','Mercancía no lista / Mal empacada','Dirección errada','Cierre caso',]
+  }
 
   const handleFileUpload = (event) => {
     const file = event.target.files[0];
@@ -94,6 +99,13 @@ function App() {
     }
   };
 
+  const handleCategoryChange = (e) => {
+    setCategory(e.target.value);
+    setTemplate('');
+  }
+
+  const templateForSelectedCategory = templateOptByCtg[category] || [];
+
   return (
     <div className="App">
       <h1>Enviar Masivo</h1>
@@ -102,7 +114,7 @@ function App() {
           <label>Categoría: </label>
           <select
             value={category}
-            onChange={(e) => setCategory(e.target.value)}
+            onChange={handleCategoryChange}
             required
           >
             <option value="">Selecciona una categoría</option>
@@ -119,9 +131,10 @@ function App() {
             value={template}
             onChange={(e) => setTemplate(e.target.value)}
             required
+            disabled={!category}
           >
             <option value="">Selecciona un template</option>
-            {templateOptions.map((option, index) => (
+            {templateForSelectedCategory.map((option, index) => (
               <option key={index} value={option}>
                 {option}
               </option>
