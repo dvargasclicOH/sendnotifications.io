@@ -46,8 +46,7 @@ label {
   color: #333;
 }
 
-.container-csv {
-  align-self: start;
+.container-csv {  
 }
 
 input[type="text"],
@@ -71,7 +70,7 @@ input[type="file"] {
 .file-upload-container {
   position: relative;  
   overflow: hidden;
-  width: 200px; /* Ajusta el ancho según sea necesario */
+  width: 90%; /* Ajusta el ancho según sea necesario */
   border: 2px solid #A0E7E5;
   border-radius: 8px;
   background-color: #f9f9f9;

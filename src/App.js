@@ -1,21 +1,17 @@
 import React, { useState } from 'react';
+import Lottie from 'lottie-react';
+import loadingAnimation from './animations/Animation1.json'
 import './App.css';
 
 function App() {
   const [csvData, setCsvData] = useState(null);
-  const [category, setCategory] = useState('');
-  const [template, setTemplate] = useState('');
+  const [category, setCategory] = useState('');  
   const [message, setMessage] = useState('');
   const [fileMessage, setFileMessage] = useState('Ningún archivo seleccionado'); // Estado para el mensaje del archivo
+  const [isSending, setIsSending] = useState(false); //Estado para mostrar el progreso de envio
 
   //Cargar categorías y templates
-  const categoryOptions = ['Devoluciones','Guías_producidas','Indemnizaciones','Novedad_recolección'];
-  const templateOptByCtg = {
-    'Devoluciones': ['Primer contacto por novedad en devolución','10 días después del primer envio','15 días, luego del primer contacto'],
-    'Guías_producidas': ['No otorga trazabilidad','10 días después del primer envio'],
-    'Indemnizaciones': ['Primer contacto, por novedad 106','10 días, luego del primer contacto','15 días, cierre indemnización'],
-    'Novedad_recolección': ['Cliente despacha con otra transportadora','Validación causal no despacho','Mercancía no lista / Mal empacada','Dirección errada','Cierre caso',]
-  }
+  const categoryOptions = ['Devoluciones','Guías_producidas','Indemnizaciones','Novedad_recolección'];  
 
   const handleFileUpload = (event) => {
     const file = event.target.files[0];
@@ -54,18 +50,22 @@ function App() {
       return;
     }
 
+    setIsSending(true);
+
     try {
       for (const row of csvData) {
-        await sendWebhook(category, template, row);
+        await sendWebhook(category, row);
       }
-      setMessage('¡Envíos completados!');
+      setMessage('¡Notificaciones enviadas! ✅');
     } catch (error) {
       console.error("Error enviando los webhooks", error);
-      setMessage('Hubo un error al enviar los webhooks.');
+      setMessage('Error al enviar las notificaciones, por favor contactarse con el administrador ❌');
+    } finally {
+      setIsSending(false);
     }
   };
 
-  const sendWebhook = async (category, template, rowData) => {
+  const sendWebhook = async (category, rowData) => {
     const webhookUrl = process.env.REACT_APP_WEBHOOK_URL;
     const bearerToken = process.env.REACT_APP_BEARER_TOKEN;
     console.log("Webhook URL:", process.env.REACT_APP_WEBHOOK_URL);
@@ -79,8 +79,7 @@ function App() {
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
-          category: category,
-          template: template,
+          category: category,          
           data: rowData
         }),
       });
@@ -100,11 +99,8 @@ function App() {
   };
 
   const handleCategoryChange = (e) => {
-    setCategory(e.target.value);
-    setTemplate('');
+    setCategory(e.target.value);    
   }
-
-  const templateForSelectedCategory = templateOptByCtg[category] || [];
 
   return (
     <div className="App">
@@ -125,22 +121,6 @@ function App() {
             ))}
             </select>
         </div>
-        <div>
-          <label>Template: </label>
-          <select            
-            value={template}
-            onChange={(e) => setTemplate(e.target.value)}
-            required
-            disabled={!category}
-          >
-            <option value="">Selecciona un template</option>
-            {templateForSelectedCategory.map((option, index) => (
-              <option key={index} value={option}>
-                {option}
-              </option>
-            ))}
-            </select>
-        </div>
         <div class="containter-csv">
           <label class="upload-label">Subir archivo CSV:</label>
           <div class="file-upload-container">
@@ -154,9 +134,15 @@ function App() {
             <p className="file-message">{fileMessage}</p> {/* Mensaje actualizado */}
           </div>
         </div>
-        <button type="submit">Enviar masivo</button>
+        <button type="submit" disabled={isSending}>Enviar masivo</button>
+        {isSending && (
+      <div className="loading">
+        <p>Enviando...</p>
+        <Lottie animationData={loadingAnimation} style={{ width: 150, height: 150, position: "relative", bottom: 45 }} />
+      </div>
+    )}
+        {message && <p>{message}</p>}
       </form>
-      {message && <p>{message}</p>}
     </div>
   );
 }
